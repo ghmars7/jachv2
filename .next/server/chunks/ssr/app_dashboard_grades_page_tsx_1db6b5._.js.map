@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file:///home/marteau/Documents/final/jachv2/app/dashboard/grades/page.tsx"],"sourcesContent":["\"use client\";\r\n\r\nimport { Button } from \"@/components/ui/button\";\r\nimport { PlusCircle } from \"lucide-react\";\r\nimport { useRouter } from \"next/navigation\";\r\n\r\nexport default function GradesPage() {\r\n  const router = useRouter();\r\n\r\n  return (\r\n    <div className=\"flex-1 space-y-4 p-8 pt-6\">\r\n      <div className=\"flex items-center justify-between\">\r\n        <h2 className=\"text-3xl font-bold tracking-tight\">Gestion des Notes</h2>\r\n        <Button onClick={() => router.push(\"/dashboard/grades/new\")}>\r\n          <PlusCircle className=\"mr-2 h-4 w-4\" />\r\n          Note\r\n        </Button>\r\n      </div>\r\n    </div>\r\n  );\r\n}\r\n"],"names":[],"mappings":";;;;AAEA;AAEA;AADA;AAHA;;;;;AAMe,SAAS;IACtB,MAAM,SAAS,CAAA,GAAA,kIAAA,CAAA,YAAS,AAAD;IAEvB,qBACE,8OAAC;QAAI,WAAU;kBACb,cAAA,8OAAC;YAAI,WAAU;;8BACb,8OAAC;oBAAG,WAAU;8BAAoC;;;;;;8BAClD,8OAAC,2HAAA,CAAA,SAAM;oBAAC,SAAS,IAAM,OAAO,IAAI,CAAC;;sCACjC,8OAAC,kNAAA,CAAA,aAAU;4BAAC,WAAU;;;;;;wBAAiB;;;;;;;;;;;;;;;;;;AAMjD"}},
+    {"offset": {"line": 63, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
+}
