@@ -31,17 +31,13 @@
       "static/chunks/_c4c472._.js",
       "static/chunks/_cb9de2._.js"
     ],
-    "/dashboard/classes/page": [
+    "/page": [
       "static/chunks/[root of the server]__608acd._.css",
       "static/chunks/_b4b06d._.js",
       "static/chunks/app_layout_tsx_36ac26._.js",
-      "static/chunks/node_modules_6465ab._.js",
-      "static/chunks/_5e7f6c._.js",
-      "static/chunks/app_dashboard_layout_tsx_7c8d7f._.js",
-      "static/chunks/app_dashboard_classes_layout_tsx_0a11d8._.js",
-      "static/chunks/app_dashboard_classes_layout_tsx_cb066c._.js",
-      "static/chunks/_540777._.js",
-      "static/chunks/app_dashboard_classes_page_tsx_77f403._.js",
+      "static/chunks/node_modules_25b7c7._.js",
+      "static/chunks/_cfb616._.js",
+      "static/chunks/app_page_tsx_7c8d7f._.js",
       "static/chunks/node_modules_next_dist_compiled_react-dom_1f56dc._.js",
       "static/chunks/node_modules_next_dist_compiled_107ce8._.js",
       "static/chunks/node_modules_next_dist_client_9bb038._.js",
@@ -51,17 +47,13 @@
       "static/chunks/_c4c472._.js",
       "static/chunks/_cb9de2._.js"
     ],
-    "/dashboard/students/page": [
+    "/auth/login/page": [
       "static/chunks/[root of the server]__608acd._.css",
       "static/chunks/_b4b06d._.js",
       "static/chunks/app_layout_tsx_36ac26._.js",
-      "static/chunks/node_modules_6465ab._.js",
-      "static/chunks/_5e7f6c._.js",
-      "static/chunks/app_dashboard_layout_tsx_7c8d7f._.js",
-      "static/chunks/app_dashboard_students_layout_tsx_3043d7._.js",
-      "static/chunks/app_dashboard_students_layout_tsx_cb066c._.js",
-      "static/chunks/_d104d0._.js",
-      "static/chunks/app_dashboard_students_page_tsx_a41392._.js",
+      "static/chunks/node_modules_96daf5._.js",
+      "static/chunks/_07e3e6._.js",
+      "static/chunks/app_auth_login_page_tsx_7c8d7f._.js",
       "static/chunks/node_modules_next_dist_compiled_react-dom_1f56dc._.js",
       "static/chunks/node_modules_next_dist_compiled_107ce8._.js",
       "static/chunks/node_modules_next_dist_client_9bb038._.js",

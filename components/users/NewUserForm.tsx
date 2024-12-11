@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -12,19 +12,26 @@ import { useRouter } from "next/navigation";
 export default function NewUserForm() {
   const router = useRouter();
 
-  const password = passwordGenerator(6);
-
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     birthDate: "",
     email: "",
-    password: password,
+    password: "", // Initial password value is empty
     class: "",
     role: "",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // UseEffect hook to generate password once on mount
+  useEffect(() => {
+    const initialPassword = passwordGenerator(6); // Generate password once
+    setFormData((prev) => ({
+      ...prev,
+      password: initialPassword, // Set the generated password in the state
+    }));
+  }, []); // Empty dependency array ensures it only runs once on mount
 
   const handleChange = (field: string, value: any) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
@@ -45,7 +52,7 @@ export default function NewUserForm() {
       lastName: formData.lastName,
       birthDate: formData.birthDate,
       email: `${formData.firstName}.${formData.lastName}@group-saint-exupery.fr`.toLowerCase(), // Générer un email basé sur prénom et nom
-      password: password,
+      password: formData.password,
       class: formData.class,
       role: formData.role,
     };
@@ -81,7 +88,6 @@ export default function NewUserForm() {
       setIsSubmitting(false);
     }
   };
-  console.log(formData.role);
 
   return (
     <div className="max-w-md mx-auto p-6 bg-white shadow rounded">
@@ -140,7 +146,7 @@ export default function NewUserForm() {
           </Select>
         </div>
 
-        {formData.role === "Professeur" && (
+        {formData.role === "professeur" && (
           <div>
             <Label htmlFor="class">Classe *</Label>
             <Select onValueChange={(value) => handleChange("class", value)} value={formData.class}>

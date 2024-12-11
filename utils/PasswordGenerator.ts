@@ -1,4 +1,4 @@
-const passwordGenerator = (length = 12) => {
+const passwordGenerator = (length: number) => {
   const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+";
   let generatedPassword = "";
   for (let i = 0; i < length; i++) {

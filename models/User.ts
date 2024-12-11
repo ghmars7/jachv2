@@ -59,17 +59,28 @@ const UserSchema = new mongoose.Schema<IUser>(
   }
 );
 
-UserSchema.pre<IUser>("save", async function (next) {
+// UserSchema.pre<IUser>("save", async function (next) {
+//   if (!this.isModified("password")) return next();
+//   this.password = await bcrypt.hash(this.password, 10);
+//   next();
+// });
+
+UserSchema.pre<IUser>("save", function (next) {
   if (!this.isModified("password")) return next();
-  this.password = await bcrypt.hash(this.password, 10);
+  // On ne modifie plus le mot de passe, on le laisse tel quel
   next();
 });
 
-// Méthode d'instance pour comparer les mots de passe
-UserSchema.methods.comparePassword = async function (candidatePassword: string): Promise<boolean> {
-  return bcrypt.compare(candidatePassword, this.password);
-};
 
+// Méthode d'instance pour comparer les mots de passe
+// UserSchema.methods.comparePassword = async function (candidatePassword: string): Promise<boolean> {
+//   return bcrypt.compare(candidatePassword, this.password);
+// };
+
+
+UserSchema.methods.comparePassword = function (candidatePassword: string): boolean {
+  return candidatePassword === this.password;
+};
 // Création et exportation du modèle User
 const UserModel = mongoose.models.User || mongoose.model("User", UserSchema);
 
