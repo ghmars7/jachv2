@@ -1,24 +1,10 @@
 import { NextResponse } from "next/server";
 import connectDB from "@/lib/db";
 import StudentModel from "@/models/Student";
-import { Class, Classes, Student } from "@/types/index";
-import { Types } from "mongoose";
+import { Student } from "@/types/index";
 import UserModel from "@/models/User";
 import ClassModel from "@/models/Classe";
 
-// const fetchTeacher = async () => {
-//   try {
-//     const response = await fetch(`/api/teachers/`, { method: "GET" });
-//     if (!response.ok) {
-//       throw new Error("Failed to fetch teacher data");
-//     }
-//     const data = await response.json();
-
-//     return data;
-//   } catch (err: any) {
-//     setError(err.message);
-//   }
-// };
 export async function POSTCLASSES() {
   try {
     await connectDB();
@@ -52,9 +38,8 @@ export async function POSTCLASSES() {
 
       return {
         level: className,
-        teacher: teacher ? `${teacher.firstName} ${teacher.lastName}` : "No teacher assigned",
+        teacher: teacher ? `${teacher.firstName} ${teacher.lastName}` : "Pas de professeur assigné à cette classe",
         students: groupedClasses[className].students.map((s: Student) => ({
-          id: s.id,
           firstName: s.firstName,
           lastName: s.lastName,
           class: s.class,
@@ -93,7 +78,6 @@ export async function POST(request: Request) {
     }
 
     const preparedStudents: Student[] = students.map((student) => ({
-      id: new Types.ObjectId().toString(), // Utilisation de mongoose.Types.ObjectId pour générer un id
       firstName: student.firstName,
       lastName: student.lastName,
       birthDate: student.birthDate, // Utiliser la date telle quelle

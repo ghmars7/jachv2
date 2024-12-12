@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
 import StudentModel from "./Student";
-import Student from "./Student";
 
 const ClassSchema = new mongoose.Schema(
   {
@@ -19,7 +18,7 @@ const ClassSchema = new mongoose.Schema(
       type: String,
       required: [true, "Le professeur est requis"],
     },
-    students: [Student],
+    students: [StudentModel],
   },
   {
     timestamps: true,

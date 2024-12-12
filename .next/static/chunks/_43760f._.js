@@ -270,8 +270,7 @@ function ImportPage() {
                 birthDate,
                 email,
                 parentEmail,
-                class: level,
-                level
+                class: level // Utilisation de 'level' comme classe
             };
         });
     };
@@ -384,7 +383,7 @@ function ImportPage() {
                         children: "Gestion des Imports"
                     }, void 0, false, {
                         fileName: "[project]/app/dashboard/import/page.tsx",
-                        lineNumber: 178,
+                        lineNumber: 176,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -397,7 +396,7 @@ function ImportPage() {
                                 accept: ".csv,.xls,.xlsx"
                             }, void 0, false, {
                                 fileName: "[project]/app/dashboard/import/page.tsx",
-                                lineNumber: 181,
+                                lineNumber: 179,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -408,26 +407,26 @@ function ImportPage() {
                                         className: "mr-2 h-4 w-4"
                                     }, void 0, false, {
                                         fileName: "[project]/app/dashboard/import/page.tsx",
-                                        lineNumber: 184,
+                                        lineNumber: 182,
                                         columnNumber: 13
                                     }, this),
                                     "Import"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/dashboard/import/page.tsx",
-                                lineNumber: 183,
+                                lineNumber: 181,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/dashboard/import/page.tsx",
-                        lineNumber: 179,
+                        lineNumber: 177,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/dashboard/import/page.tsx",
-                lineNumber: 177,
+                lineNumber: 175,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -444,18 +443,18 @@ function ImportPage() {
                         ]
                     }, index, true, {
                         fileName: "[project]/app/dashboard/import/page.tsx",
-                        lineNumber: 192,
+                        lineNumber: 190,
                         columnNumber: 15
                     }, this)) : "Aucune donnée importée"
             }, void 0, false, {
                 fileName: "[project]/app/dashboard/import/page.tsx",
-                lineNumber: 189,
+                lineNumber: 187,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/dashboard/import/page.tsx",
-        lineNumber: 176,
+        lineNumber: 174,
         columnNumber: 5
     }, this);
 }

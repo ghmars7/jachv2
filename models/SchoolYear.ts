@@ -24,4 +24,6 @@ const SchoolYearSchema = new mongoose.Schema({
   timestamps: true
 });
 
-export default mongoose.models.SchoolYearModel || mongoose.model('SchoolYear', SchoolYearSchema);
+const SchoolYearModel = mongoose.models.SchoolYear || mongoose.model('SchoolYear', SchoolYearSchema);
+
+export default SchoolYearModel

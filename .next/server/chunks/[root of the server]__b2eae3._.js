@@ -103,6 +103,112 @@ __turbopack_esm__({});
 var __TURBOPACK__imported__module__$5b$externals$5d2f$__$5b$external$5d$__$28$mongoose$2c$__cjs$29$__ = __turbopack_import__("[externals]/ [external] (mongoose, cjs)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$db$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_import__("[project]/lib/db.ts [app-route] (ecmascript) <locals>");
 }}),
+"[project]/models/SchoolYear.ts [app-route] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+var { r: __turbopack_require__, f: __turbopack_module_context__, i: __turbopack_import__, s: __turbopack_esm__, v: __turbopack_export_value__, n: __turbopack_export_namespace__, c: __turbopack_cache__, M: __turbopack_modules__, l: __turbopack_load__, j: __turbopack_dynamic__, P: __turbopack_resolve_absolute_path__, U: __turbopack_relative_url__, R: __turbopack_resolve_module_id_path__, b: __turbopack_worker_blob_url__, g: global, __dirname, x: __turbopack_external_require__, y: __turbopack_external_import__, z: require } = __turbopack_context__;
+{
+__turbopack_esm__({
+    "default": (()=>__TURBOPACK__default__export__)
+});
+var __TURBOPACK__imported__module__$5b$externals$5d2f$__$5b$external$5d$__$28$mongoose$2c$__cjs$29$__ = __turbopack_import__("[externals]/ [external] (mongoose, cjs)");
+;
+const SchoolYearSchema = new __TURBOPACK__imported__module__$5b$externals$5d2f$__$5b$external$5d$__$28$mongoose$2c$__cjs$29$__["default"].Schema({
+    year: {
+        type: String,
+        required: [
+            true,
+            "L'année scolaire est requise"
+        ],
+        unique: true,
+        validate: {
+            validator: function(v) {
+                return /^\d{4}-\d{4}$/.test(v);
+            },
+            message: (props)=>`${props.value} n'est pas un format d'année scolaire valide (YYYY-YYYY)`
+        }
+    },
+    isActive: {
+        type: Boolean,
+        default: false
+    },
+    archivedAt: {
+        type: Date,
+        default: null
+    }
+}, {
+    timestamps: true
+});
+const __TURBOPACK__default__export__ = __TURBOPACK__imported__module__$5b$externals$5d2f$__$5b$external$5d$__$28$mongoose$2c$__cjs$29$__["default"].models.SchoolYearModel || __TURBOPACK__imported__module__$5b$externals$5d2f$__$5b$external$5d$__$28$mongoose$2c$__cjs$29$__["default"].model('SchoolYear', SchoolYearSchema);
+}}),
+"[project]/models/Student.ts [app-route] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+var { r: __turbopack_require__, f: __turbopack_module_context__, i: __turbopack_import__, s: __turbopack_esm__, v: __turbopack_export_value__, n: __turbopack_export_namespace__, c: __turbopack_cache__, M: __turbopack_modules__, l: __turbopack_load__, j: __turbopack_dynamic__, P: __turbopack_resolve_absolute_path__, U: __turbopack_relative_url__, R: __turbopack_resolve_module_id_path__, b: __turbopack_worker_blob_url__, g: global, __dirname, x: __turbopack_external_require__, y: __turbopack_external_import__, z: require } = __turbopack_context__;
+{
+__turbopack_esm__({
+    "default": (()=>__TURBOPACK__default__export__)
+});
+var __TURBOPACK__imported__module__$5b$externals$5d2f$__$5b$external$5d$__$28$mongoose$2c$__cjs$29$__ = __turbopack_import__("[externals]/ [external] (mongoose, cjs)");
+;
+const StudentSchema = new __TURBOPACK__imported__module__$5b$externals$5d2f$__$5b$external$5d$__$28$mongoose$2c$__cjs$29$__["default"].Schema({
+    firstName: {
+        type: String,
+        required: [
+            true,
+            "Le prénom est requis"
+        ],
+        trim: true
+    },
+    lastName: {
+        type: String,
+        required: [
+            true,
+            "Le nom est requis"
+        ],
+        trim: true
+    },
+    class: {
+        type: String,
+        required: [
+            true,
+            "La classe est requise"
+        ]
+    },
+    birthDate: {
+        type: String,
+        required: [
+            true,
+            "La date de naissance est requise"
+        ]
+    },
+    email: {
+        type: String,
+        required: [
+            true,
+            "L'email est requis"
+        ],
+        unique: true,
+        trim: true,
+        lowercase: true
+    },
+    parentEmail: {
+        type: String,
+        required: [
+            true,
+            "L'email du parent est requis"
+        ],
+        trim: true,
+        lowercase: true
+    }
+}, {
+    timestamps: true
+});
+// export default mongoose.models.StudentModel || mongoose.model("Student", StudentSchema);
+// Create and export the model only once
+const StudentModel = __TURBOPACK__imported__module__$5b$externals$5d2f$__$5b$external$5d$__$28$mongoose$2c$__cjs$29$__["default"].models.Student || __TURBOPACK__imported__module__$5b$externals$5d2f$__$5b$external$5d$__$28$mongoose$2c$__cjs$29$__["default"].model("Student", StudentSchema);
+const __TURBOPACK__default__export__ = StudentModel;
+}}),
 "[externals]/ [external] (buffer, cjs)": (function(__turbopack_context__) {
 
 var { r: __turbopack_require__, f: __turbopack_module_context__, i: __turbopack_import__, s: __turbopack_esm__, v: __turbopack_export_value__, n: __turbopack_export_namespace__, c: __turbopack_cache__, M: __turbopack_modules__, l: __turbopack_load__, j: __turbopack_dynamic__, P: __turbopack_resolve_absolute_path__, U: __turbopack_relative_url__, R: __turbopack_resolve_module_id_path__, b: __turbopack_worker_blob_url__, g: global, __dirname, x: __turbopack_external_require__, y: __turbopack_external_import__, m: module, e: exports, t: require } = __turbopack_context__;
@@ -231,7 +337,7 @@ async function requireAdmin(request) {
     return user;
 }
 }}),
-"[project]/models/SchoolYear.ts [app-route] (ecmascript)": ((__turbopack_context__) => {
+"[project]/models/Classe.ts [app-route] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
 var { r: __turbopack_require__, f: __turbopack_module_context__, i: __turbopack_import__, s: __turbopack_esm__, v: __turbopack_export_value__, n: __turbopack_export_namespace__, c: __turbopack_cache__, M: __turbopack_modules__, l: __turbopack_load__, j: __turbopack_dynamic__, P: __turbopack_resolve_absolute_path__, U: __turbopack_relative_url__, R: __turbopack_resolve_module_id_path__, b: __turbopack_worker_blob_url__, g: global, __dirname, x: __turbopack_external_require__, y: __turbopack_external_import__, z: require } = __turbopack_context__;
@@ -240,71 +346,65 @@ __turbopack_esm__({
     "default": (()=>__TURBOPACK__default__export__)
 });
 var __TURBOPACK__imported__module__$5b$externals$5d2f$__$5b$external$5d$__$28$mongoose$2c$__cjs$29$__ = __turbopack_import__("[externals]/ [external] (mongoose, cjs)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$models$2f$Student$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/models/Student.ts [app-route] (ecmascript)");
 ;
-const SchoolYearSchema = new __TURBOPACK__imported__module__$5b$externals$5d2f$__$5b$external$5d$__$28$mongoose$2c$__cjs$29$__["default"].Schema({
-    year: {
+;
+const ClassSchema = new __TURBOPACK__imported__module__$5b$externals$5d2f$__$5b$external$5d$__$28$mongoose$2c$__cjs$29$__["default"].Schema({
+    level: {
         type: String,
         required: [
             true,
-            "L'année scolaire est requise"
+            "La classe est requise"
+        ]
+    },
+    studentsNumber: {
+        type: Number,
+        required: [
+            true,
+            "Le nombre d'élève est requis"
         ],
         unique: true,
-        validate: {
-            validator: function(v) {
-                return /^\d{4}-\d{4}$/.test(v);
-            },
-            message: (props)=>`${props.value} n'est pas un format d'année scolaire valide (YYYY-YYYY)`
-        }
+        trim: true,
+        lowercase: true
     },
-    isActive: {
-        type: Boolean,
-        default: false
+    teacher: {
+        type: String,
+        required: [
+            true,
+            "Le professeur est requis"
+        ]
     },
-    archivedAt: {
-        type: Date,
-        default: null
-    }
+    students: [
+        __TURBOPACK__imported__module__$5b$project$5d2f$models$2f$Student$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"]
+    ]
 }, {
     timestamps: true
 });
-const SchoolYearModel = __TURBOPACK__imported__module__$5b$externals$5d2f$__$5b$external$5d$__$28$mongoose$2c$__cjs$29$__["default"].models.SchoolYear || __TURBOPACK__imported__module__$5b$externals$5d2f$__$5b$external$5d$__$28$mongoose$2c$__cjs$29$__["default"].model('SchoolYear', SchoolYearSchema);
-const __TURBOPACK__default__export__ = SchoolYearModel;
+const ClassModel = __TURBOPACK__imported__module__$5b$externals$5d2f$__$5b$external$5d$__$28$mongoose$2c$__cjs$29$__["default"].models.Class || __TURBOPACK__imported__module__$5b$externals$5d2f$__$5b$external$5d$__$28$mongoose$2c$__cjs$29$__["default"].model("Class", ClassSchema);
+const __TURBOPACK__default__export__ = ClassModel;
 }}),
-"[project]/app/api/school-years/route.ts [app-route] (ecmascript)": ((__turbopack_context__) => {
+"[project]/app/api/school-years/[year]/archive/route.ts [app-route] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
 var { r: __turbopack_require__, f: __turbopack_module_context__, i: __turbopack_import__, s: __turbopack_esm__, v: __turbopack_export_value__, n: __turbopack_export_namespace__, c: __turbopack_cache__, M: __turbopack_modules__, l: __turbopack_load__, j: __turbopack_dynamic__, P: __turbopack_resolve_absolute_path__, U: __turbopack_relative_url__, R: __turbopack_resolve_module_id_path__, b: __turbopack_worker_blob_url__, g: global, __dirname, x: __turbopack_external_require__, y: __turbopack_external_import__, z: require } = __turbopack_context__;
 {
 __turbopack_esm__({
-    "GET": (()=>GET),
     "POST": (()=>POST)
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/server.js [app-route] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$db$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$module__evaluation$3e$__ = __turbopack_import__("[project]/lib/db.ts [app-route] (ecmascript) <module evaluation>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$auth$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/lib/auth.ts [app-route] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$models$2f$SchoolYear$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/models/SchoolYear.ts [app-route] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$models$2f$Student$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/models/Student.ts [app-route] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$models$2f$Classe$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/models/Classe.ts [app-route] (ecmascript)"); // Modèle pour les classes
+var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$auth$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/lib/auth.ts [app-route] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$db$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_import__("[project]/lib/db.ts [app-route] (ecmascript) <locals>");
 ;
 ;
 ;
 ;
-async function GET() {
-    try {
-        await (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$db$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$locals$3e$__["default"])();
-        const schoolYears = await __TURBOPACK__imported__module__$5b$project$5d2f$models$2f$SchoolYear$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"].find({}).sort({
-            year: -1
-        }); // Annotate the type
-        //const year = await SchoolYearModel.find({ isActive: true })
-        return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json(schoolYears);
-    } catch (error) {
-        return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
-            error: 'Erreur lors de la récupération des années scolaires'
-        }, {
-            status: 500
-        });
-    }
-}
-async function POST(request) {
+;
+;
+async function POST(request, { params }) {
     try {
         const user = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$auth$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["requireAdmin"])(request);
         if ('error' in user) {
@@ -313,20 +413,45 @@ async function POST(request) {
             });
         }
         await (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$db$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__$3c$locals$3e$__["default"])();
-        const data = await request.json();
-        // Désactiver l'année active actuelle si la nouvelle année doit être active
-        if (data.isActive) {
-            await __TURBOPACK__imported__module__$5b$project$5d2f$models$2f$SchoolYear$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"].updateMany({}, {
-                isActive: false
+        // Vérifier si l'année existe
+        const schoolYear = await __TURBOPACK__imported__module__$5b$project$5d2f$models$2f$SchoolYear$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"].findOne({
+            year: params.year
+        });
+        if (!schoolYear) {
+            return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
+                error: 'Année scolaire non trouvée'
+            }, {
+                status: 404
             });
         }
-        const schoolYear = await __TURBOPACK__imported__module__$5b$project$5d2f$models$2f$SchoolYear$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"].create(data);
-        return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json(schoolYear, {
-            status: 201
+        // Archiver la collection Students
+        const studentArchiveCollectionName = `students_${params.year.replace('-', '_')}`;
+        await __TURBOPACK__imported__module__$5b$project$5d2f$models$2f$Student$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"].aggregate([
+            {
+                $out: studentArchiveCollectionName
+            }
+        ]);
+        // Archiver la collection Classes
+        const classArchiveCollectionName = `classes_${params.year.replace('-', '_')}`;
+        await __TURBOPACK__imported__module__$5b$project$5d2f$models$2f$Classe$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"].aggregate([
+            {
+                $out: classArchiveCollectionName
+            }
+        ]);
+        // Marquer l'année comme archivée
+        schoolYear.archivedAt = new Date();
+        await schoolYear.save();
+        return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
+            message: 'Année scolaire archivée avec succès',
+            archivedCollections: {
+                students: studentArchiveCollectionName,
+                classes: classArchiveCollectionName
+            }
         });
     } catch (error) {
+        console.error(error);
         return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
-            error: error.message || "Erreur lors de la création de l'année scolaire"
+            error: "Erreur lors de l'archivage de l'année scolaire"
         }, {
             status: 500
         });
@@ -341,4 +466,4 @@ var { r: __turbopack_require__, f: __turbopack_module_context__, i: __turbopack_
 
 };
 
-//# sourceMappingURL=%5Broot%20of%20the%20server%5D__620313._.js.map
+//# sourceMappingURL=%5Broot%20of%20the%20server%5D__b2eae3._.js.map

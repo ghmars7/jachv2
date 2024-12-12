@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import connectDB from '@/lib/db';
 import SchoolYear from '@/models/SchoolYear';
-import Student from '@/models/Student';
+import StudentModel from '@/models/Student';
+import ClassModel from '@/models/Classe'; // Modèle pour les classes
 import { requireAdmin } from '@/lib/auth';
 
 export async function POST(
@@ -25,13 +26,13 @@ export async function POST(
       );
     }
 
-    // Créer une collection archivée pour les étudiants
-    const archiveCollectionName = `students_${params.year.replace('-', '_')}`;
-    
-    // Copier les données dans la nouvelle collection
-    await Student.aggregate([
-      { $out: archiveCollectionName }
-    ]);
+    // Archiver la collection Students
+    const studentArchiveCollectionName = `students_${params.year.replace('-', '_')}`;
+    await StudentModel.aggregate([{ $out: studentArchiveCollectionName }]);
+
+    // Archiver la collection Classes
+    // const classArchiveCollectionName = `classes_${params.year.replace('-', '_')}`;
+    // await ClassModel.aggregate([{ $out: classArchiveCollectionName }]);
 
     // Marquer l'année comme archivée
     schoolYear.archivedAt = new Date();
@@ -39,9 +40,13 @@ export async function POST(
 
     return NextResponse.json({
       message: 'Année scolaire archivée avec succès',
-      archiveCollection: archiveCollectionName
+      archivedCollections: {
+        students: studentArchiveCollectionName,
+       // classes: classArchiveCollectionName,
+      },
     });
   } catch (error) {
+    console.error(error);
     return NextResponse.json(
       { error: "Erreur lors de l'archivage de l'année scolaire" },
       { status: 500 }

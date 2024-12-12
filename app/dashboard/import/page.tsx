@@ -10,7 +10,6 @@ import * as XLSX from "xlsx"; // XLSX parser
 import { useToast } from "@/hooks/use-toast";
 
 export interface FileData extends Student {
-  level: string; // Niveau (par exemple, "1ère section maternelle")
   teacherName?: string; // Nom du professeur (par exemple, "Dufour Zoé")
 }
 
@@ -61,8 +60,7 @@ export default function ImportPage() {
           birthDate,
           email,
           parentEmail,
-          class: level, // Utilisation de 'level' comme classe
-          level, // Niveau
+          class: level // Utilisation de 'level' comme classe
         };
       });
   };
