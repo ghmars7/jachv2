@@ -90,12 +90,15 @@ __turbopack_esm__({
     "default": (()=>StatsCards)
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$hooks$2f$useStudents$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/hooks/useStudents.ts [app-ssr] (ecmascript)");
+;
 ;
 function StatsCards() {
+    const { students, isLoading, mutate } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$hooks$2f$useStudents$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useStudents"])();
     const stats = [
         {
             name: "Total Élèves",
-            value: "486"
+            value: students.length
         },
         {
             name: "Classes",
@@ -104,10 +107,6 @@ function StatsCards() {
         {
             name: "Professeurs",
             value: "32"
-        },
-        {
-            name: "Moyenne Générale",
-            value: "14.8"
         }
     ];
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -120,7 +119,7 @@ function StatsCards() {
                         children: stat.value
                     }, void 0, false, {
                         fileName: "[project]/components/dashboard/StatsCards.tsx",
-                        lineNumber: 13,
+                        lineNumber: 17,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -128,18 +127,18 @@ function StatsCards() {
                         children: stat.name
                     }, void 0, false, {
                         fileName: "[project]/components/dashboard/StatsCards.tsx",
-                        lineNumber: 14,
+                        lineNumber: 18,
                         columnNumber: 11
                     }, this)
                 ]
             }, stat.name, true, {
                 fileName: "[project]/components/dashboard/StatsCards.tsx",
-                lineNumber: 12,
+                lineNumber: 16,
                 columnNumber: 9
             }, this))
     }, void 0, false, {
         fileName: "[project]/components/dashboard/StatsCards.tsx",
-        lineNumber: 10,
+        lineNumber: 14,
         columnNumber: 5
     }, this);
 }
