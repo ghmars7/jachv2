@@ -33,13 +33,17 @@ const StudentSchema = new mongoose.Schema(
       trim: true,
       lowercase: true,
     },
+    admission: {
+      type: String,
+      enum: ["", "admis", "redoublement"],
+      default: "",
+    },
   },
   {
     timestamps: true,
   }
 );
 
-// export default mongoose.models.StudentModel || mongoose.model("Student", StudentSchema);
 // Create and export the model only once
 const StudentModel = mongoose.models.Student || mongoose.model("Student", StudentSchema);
 

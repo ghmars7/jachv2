@@ -7,7 +7,7 @@ import { NextRequest } from "next/server";
 interface DecodedToken extends JwtPayload {
   id: string;
   email: string;
-  role: "admin" | "Professeur"; // Adaptez les rôles à vos besoins
+  role: "admin" | "professeur"; // Adaptez les rôles à vos besoins
   iat: number;
   exp: number;
 }

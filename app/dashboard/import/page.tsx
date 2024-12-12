@@ -10,7 +10,8 @@ import * as XLSX from "xlsx"; // XLSX parser
 import { useToast } from "@/hooks/use-toast";
 
 export interface FileData extends Student {
-  teacherName?: string; // Nom du professeur (par exemple, "Dufour Zoé")
+  level: string;
+  teacherName?: string;
 }
 
 const formatLevel = (level: string): string => {
@@ -60,7 +61,9 @@ export default function ImportPage() {
           birthDate,
           email,
           parentEmail,
-          class: level // Utilisation de 'level' comme classe
+          admission: "",
+          class: level, // Utilisation de 'level' comme classe
+          level, // Niveau
         };
       });
   };
@@ -180,7 +183,7 @@ export default function ImportPage() {
           {/* Import button */}
           <Button className="mx-4" onClick={handleImportClick}>
             <PlusCircle className="mr-2 h-4 w-4" />
-            Import
+            Importer des élèves
           </Button>
         </div>
       </div>
@@ -191,7 +194,7 @@ export default function ImportPage() {
                 {student.firstName} {student.lastName} - {student.birthDate} - {student.class}
               </div>
             ))
-          : "Aucune donnée importée"}
+          : "Aucuns élèves importées"}
       </div>
     </div>
   );

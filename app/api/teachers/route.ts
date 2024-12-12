@@ -5,7 +5,7 @@ import UserModel from "@/models/User";
 export async function GET() {
   try {
     await connectDB(); // Connect to the database
-    const teachers = await UserModel.find({ role: "Professeur" }) // Find users with the "Professeur" role
+    const teachers = await UserModel.find({ role: "professeur" }) // Find users with the "Professeur" role
       .sort({ lastName: 1 }); // Sort by lastName in ascending order
     return NextResponse.json(teachers); // Return the results as JSON
   } catch (error) {

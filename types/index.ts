@@ -1,10 +1,12 @@
 export interface Student {
+  // id: string;
   firstName: string;
   lastName: string;
   class: string;
   birthDate: string;
   email: string;
   parentEmail: string;
+  admission: string;
 }
 
 export interface Class {
@@ -23,6 +25,12 @@ export interface Teacher {
   class?: string;
 }
 
+export interface SchoolYear {
+  year: string;
+  isActive: boolean;
+  archivedAt: Date | null;
+}
+
 export interface User {
   id: string;
   firstName: string;
@@ -30,11 +38,6 @@ export interface User {
   email: string;
   password: string;
   class?: string;
-}
-export interface SchoolYear {
-  year: string;
-  isActive: boolean;
-  archivedAt: Date | null;
 }
 
 export enum Classes {
@@ -52,3 +55,9 @@ export enum Role {
   "professeur" = 1,
   "admin" = 2,
 }
+
+export enum Admission {
+  "admis" = 1,
+  "redoublement" = 2,
+}
+

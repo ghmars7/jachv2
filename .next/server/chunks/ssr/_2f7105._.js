@@ -483,6 +483,7 @@ Input.displayName = "Input";
 var { r: __turbopack_require__, f: __turbopack_module_context__, i: __turbopack_import__, s: __turbopack_esm__, v: __turbopack_export_value__, n: __turbopack_export_namespace__, c: __turbopack_cache__, M: __turbopack_modules__, l: __turbopack_load__, j: __turbopack_dynamic__, P: __turbopack_resolve_absolute_path__, U: __turbopack_relative_url__, R: __turbopack_resolve_module_id_path__, b: __turbopack_worker_blob_url__, g: global, __dirname, x: __turbopack_external_require__, y: __turbopack_external_import__, z: require } = __turbopack_context__;
 {
 __turbopack_esm__({
+    "Admission": (()=>Admission),
     "Classes": (()=>Classes),
     "Role": (()=>Role)
 });
@@ -501,6 +502,11 @@ var Role = /*#__PURE__*/ function(Role) {
     Role[Role["professeur"] = 1] = "professeur";
     Role[Role["admin"] = 2] = "admin";
     return Role;
+}({});
+var Admission = /*#__PURE__*/ function(Admission) {
+    Admission[Admission["admis"] = 1] = "admis";
+    Admission[Admission["redoublement"] = 2] = "redoublement";
+    return Admission;
 }({});
 }}),
 "[project]/components/users/UsersFilters.tsx [app-ssr] (ecmascript)": ((__turbopack_context__) => {

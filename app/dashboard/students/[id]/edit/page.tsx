@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectTrigger, SelectContent, SelectItem, SelectValue } from "@/components/ui/select";
-import { Classes } from "@/types";
+import { Admission, Classes } from "@/types";
 
 const EditStudentPage = () => {
   const [formData, setFormData] = useState({
@@ -15,6 +15,7 @@ const EditStudentPage = () => {
     class: "",
     birthDate: "",
     parentEmail: "",
+    admission: "",
   });
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
@@ -37,6 +38,7 @@ const EditStudentPage = () => {
           class: data.class,
           birthDate: data.birthDate,
           parentEmail: data.parentEmail,
+          admission: data.admission,
         });
       } catch (err: any) {
         setError(err.message);
@@ -150,6 +152,23 @@ const EditStudentPage = () => {
             onChange={(e) => handleChange("parentEmail", e.target.value)}
             required
           />
+        </div>
+        <div>
+          <Label htmlFor="admission">Admission</Label>
+          <Select onValueChange={(value) => handleChange("admission", value)} value={formData.admission}>
+            <SelectTrigger id="admission">
+              <SelectValue placeholder="Select Admission" />
+            </SelectTrigger>
+            <SelectContent>
+              {Object.entries(Admission)
+                .filter(([key, value]) => isNaN(Number(key))) // Ensure we only use string keys (class names)
+                .map(([key, value]) => (
+                  <SelectItem key={value} value={key}>
+                    {key}
+                  </SelectItem>
+                ))}
+            </SelectContent>
+          </Select>
         </div>
         <Button type="submit" className="w-full" disabled={isLoading}>
           {isLoading ? "Mise à jour..." : "Mettre à jour"}

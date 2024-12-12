@@ -6,19 +6,20 @@ const ClassSchema = new mongoose.Schema(
     level: {
       type: String,
       required: [true, "La classe est requise"],
+      unique: true,
     },
     studentsNumber: {
       type: Number,
       required: [true, "Le nombre d'élève est requis"],
-      unique: true,
-      trim: true,
-      lowercase: true,
     },
     teacher: {
       type: String,
       required: [true, "Le professeur est requis"],
     },
-    students: [StudentModel],
+    students: {
+      type: Array,
+      value: [StudentModel],
+    },
   },
   {
     timestamps: true,

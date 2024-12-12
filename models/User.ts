@@ -1,6 +1,5 @@
 import mongoose, { Document, Schema } from "mongoose";
 import * as bcrypt from "bcrypt";
-import { passwordGenerator } from "@/utils/PasswordGenerator";
 
 // Interface pour typer un document User
 interface IUser extends Document {
@@ -49,6 +48,7 @@ const UserSchema = new mongoose.Schema<IUser>(
     },
     class: {
       type: String,
+      default: "",
       // required: function () {
       //   return this.role === "teacher";
       // }, // `this` fait référence au document
@@ -58,7 +58,6 @@ const UserSchema = new mongoose.Schema<IUser>(
     timestamps: true,
   }
 );
-
 // UserSchema.pre<IUser>("save", async function (next) {
 //   if (!this.isModified("password")) return next();
 //   this.password = await bcrypt.hash(this.password, 10);
@@ -71,12 +70,10 @@ UserSchema.pre<IUser>("save", function (next) {
   next();
 });
 
-
 // Méthode d'instance pour comparer les mots de passe
 // UserSchema.methods.comparePassword = async function (candidatePassword: string): Promise<boolean> {
 //   return bcrypt.compare(candidatePassword, this.password);
 // };
-
 
 UserSchema.methods.comparePassword = function (candidatePassword: string): boolean {
   return candidatePassword === this.password;

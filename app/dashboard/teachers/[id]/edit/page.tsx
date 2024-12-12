@@ -79,10 +79,10 @@ const EditTeacherPage = () => {
 
   return (
     <div className="max-w-md mx-auto p-6 bg-white shadow rounded">
-      <h2 className="text-xl font-bold mb-4">{"Modifier l'élève"}</h2>
+      <h2 className="text-xl font-bold mb-4">{"Assigner une nouvelle classe"}</h2>
       {error && <p className="text-red-500">{error}</p>}
       <form onSubmit={handleSubmit} className="space-y-4">
-        {/* <div>
+        <div>
           <Label htmlFor="firstName">Prénom</Label>
           <Input
             id="firstName"
@@ -90,6 +90,7 @@ const EditTeacherPage = () => {
             value={formData.firstName}
             onChange={(e) => handleChange("firstName", e.target.value)}
             required
+            disabled
           />
         </div>
         <div>
@@ -100,6 +101,7 @@ const EditTeacherPage = () => {
             value={formData.lastName}
             onChange={(e) => handleChange("lastName", e.target.value)}
             required
+            disabled
           />
         </div>
         <div>
@@ -110,8 +112,9 @@ const EditTeacherPage = () => {
             value={formData.email}
             onChange={(e) => handleChange("email", e.target.value)}
             required
+            disabled
           />
-        </div> */}
+        </div>
         <div>
           <Label htmlFor="class">Classe</Label>
           <Select onValueChange={(value) => handleChange("class", value)} value={formData.class}>

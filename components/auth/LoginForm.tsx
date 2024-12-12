@@ -102,12 +102,6 @@ export default function LoginForm() {
           <Button type="submit" className="w-full" disabled={isLoading}>
             {isLoading ? "Connexion..." : "Se connecter"}
           </Button>
-          <p className="text-sm text-center text-muted-foreground">
-            Pas encore de compte ?{" "}
-            <Link href="/auth/register" className="text-primary hover:underline">
-              Inscription
-            </Link>
-          </p>
         </CardFooter>
       </form>
     </Card>

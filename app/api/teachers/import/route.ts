@@ -21,10 +21,11 @@ export async function POST(request: Request) {
       id: new Types.ObjectId().toString(), // Utilisation de mongoose.Types.ObjectId pour générer un id
       firstName: teacher.firstName,
       lastName: teacher.lastName,
-      birthDate: teacher.birthDate, // Utiliser la date telle quelle
-      email: teacher.email, // Générer un email basé sur prénom et nom
-      parentEmail: teacher.parentEmail, // Email parent par défaut
-      class: teacher.class, // Classe par défaut
+      birthDate: teacher.birthDate,
+      email: teacher.email,
+      parentEmail: teacher.parentEmail,
+      class: teacher.class,
+      password: teacher.password,
     }));
 
     const result = await TeacherModel.insertMany(preparedTeachers, { ordered: false }).catch((error: any) => {

@@ -170,7 +170,8 @@ const UserSchema = new __TURBOPACK__imported__module__$5b$externals$5d2f$__$5b$e
         ]
     },
     class: {
-        type: String
+        type: String,
+        default: ""
     }
 }, {
     timestamps: true

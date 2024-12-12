@@ -162,7 +162,7 @@ const EditUserPage = () => {
           </Select>
         </div>
 
-        {formData.role === "Professeur" && (
+        {formData.role === "professeur" && (
           <div>
             <Label htmlFor="class">Classe *</Label>
             <Select onValueChange={(value) => handleChange("class", value)} value={formData.class}>

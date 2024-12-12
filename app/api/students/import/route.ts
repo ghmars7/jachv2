@@ -46,6 +46,7 @@ export async function POSTCLASSES() {
           birthDate: s.birthDate,
           email: s.email,
           parentEmail: s.parentEmail,
+          admission: s.admission,
         })),
         studentsNumber: groupedClasses[className].students.length,
       };
@@ -78,12 +79,14 @@ export async function POST(request: Request) {
     }
 
     const preparedStudents: Student[] = students.map((student) => ({
+      // id: new Types.ObjectId().toString(), // Utilisation de mongoose.Types.ObjectId pour générer un id
       firstName: student.firstName,
       lastName: student.lastName,
       birthDate: student.birthDate, // Utiliser la date telle quelle
       email: student.email, // Générer un email basé sur prénom et nom
       parentEmail: student.parentEmail, // Email parent par défaut
       class: student.class, // Classe par défaut
+      admission: student.admission,
     }));
 
     const result = await StudentModel.insertMany(preparedStudents, { ordered: false }).catch((error) => {

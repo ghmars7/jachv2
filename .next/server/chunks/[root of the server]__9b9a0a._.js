@@ -162,11 +162,19 @@ const StudentSchema = new __TURBOPACK__imported__module__$5b$externals$5d2f$__$5
         ],
         trim: true,
         lowercase: true
+    },
+    admission: {
+        type: String,
+        enum: [
+            "",
+            "admis",
+            "redoublement"
+        ],
+        default: ""
     }
 }, {
     timestamps: true
 });
-// export default mongoose.models.StudentModel || mongoose.model("Student", StudentSchema);
 // Create and export the model only once
 const StudentModel = __TURBOPACK__imported__module__$5b$externals$5d2f$__$5b$external$5d$__$28$mongoose$2c$__cjs$29$__["default"].models.Student || __TURBOPACK__imported__module__$5b$externals$5d2f$__$5b$external$5d$__$28$mongoose$2c$__cjs$29$__["default"].model("Student", StudentSchema);
 const __TURBOPACK__default__export__ = StudentModel;
@@ -238,7 +246,8 @@ const UserSchema = new __TURBOPACK__imported__module__$5b$externals$5d2f$__$5b$e
         ]
     },
     class: {
-        type: String
+        type: String,
+        default: ""
     }
 }, {
     timestamps: true
@@ -282,17 +291,15 @@ const ClassSchema = new __TURBOPACK__imported__module__$5b$externals$5d2f$__$5b$
         required: [
             true,
             "La classe est requise"
-        ]
+        ],
+        unique: true
     },
     studentsNumber: {
         type: Number,
         required: [
             true,
             "Le nombre d'élève est requis"
-        ],
-        unique: true,
-        trim: true,
-        lowercase: true
+        ]
     },
     teacher: {
         type: String,
@@ -301,9 +308,12 @@ const ClassSchema = new __TURBOPACK__imported__module__$5b$externals$5d2f$__$5b$
             "Le professeur est requis"
         ]
     },
-    students: [
-        __TURBOPACK__imported__module__$5b$project$5d2f$models$2f$Student$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"]
-    ]
+    students: {
+        type: Array,
+        value: [
+            __TURBOPACK__imported__module__$5b$project$5d2f$models$2f$Student$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"]
+        ]
+    }
 }, {
     timestamps: true
 });
@@ -370,7 +380,8 @@ async function POSTCLASSES() {
                         class: s.class,
                         birthDate: s.birthDate,
                         email: s.email,
-                        parentEmail: s.parentEmail
+                        parentEmail: s.parentEmail,
+                        admission: s.admission
                     })),
                 studentsNumber: groupedClasses[className].students.length
             };
@@ -403,12 +414,14 @@ async function POST(request) {
             });
         }
         const preparedStudents = students.map((student)=>({
+                // id: new Types.ObjectId().toString(), // Utilisation de mongoose.Types.ObjectId pour générer un id
                 firstName: student.firstName,
                 lastName: student.lastName,
                 birthDate: student.birthDate,
                 email: student.email,
                 parentEmail: student.parentEmail,
-                class: student.class
+                class: student.class,
+                admission: student.admission
             }));
         const result = await __TURBOPACK__imported__module__$5b$project$5d2f$models$2f$Student$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"].insertMany(preparedStudents, {
             ordered: false
