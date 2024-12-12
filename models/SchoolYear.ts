@@ -5,7 +5,6 @@ const SchoolYearSchema = new mongoose.Schema({
     type: String,
     required: [true, "L'année scolaire est requise"],
     unique: true,
-    // Format: "2023-2024"
     validate: {
       validator: function(v: string) {
         return /^\d{4}-\d{4}$/.test(v);

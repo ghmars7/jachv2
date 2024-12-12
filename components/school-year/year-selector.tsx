@@ -1,5 +1,3 @@
-"use client";
-
 import { useEffect, useState } from "react";
 import {
   Select,
@@ -13,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { PlusCircle } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/hooks/useAuth";
+import { SchoolYear } from "@/types";
 
 export function YearSelector() {
   const { schoolYears, isLoading } = useSchoolYears();
@@ -21,23 +20,17 @@ export function YearSelector() {
   const router = useRouter();
   const [hydrated, setHydrated] = useState(false);
 
-  // Ensure the component is only rendered on the client
+
   useEffect(() => {
     setHydrated(true);
   }, []);
 
   useEffect(() => {
     if (schoolYears?.length && !currentYear) {
-      const activeYear = schoolYears.find((year) => year.isActive);
-      if (activeYear) {
-        setCurrentYear(activeYear.year);
-      } else {
-        setCurrentYear(schoolYears[0].year);
-      }
+      setCurrentYear( schoolYears[0]?.year);
     }
   }, [schoolYears, currentYear, setCurrentYear]);
 
-  // Avoid rendering on the server to prevent mismatches
   if (!hydrated || isLoading) {
     return <div>Chargement...</div>;
   }
@@ -46,13 +39,15 @@ export function YearSelector() {
     <div className="flex items-center space-x-2">
       <Select
         value={currentYear || ""}
-        onValueChange={setCurrentYear}
+        onValueChange={(value) => {
+          setCurrentYear(value);
+        }}
       >
         <SelectTrigger className="w-[180px]">
           <SelectValue placeholder={currentYear} />
         </SelectTrigger>
         <SelectContent>
-          {schoolYears?.map((year, id) => (
+          {schoolYears.map((year : SchoolYear, id: number) => (
             <SelectItem
               key={id}
               value={year.year}

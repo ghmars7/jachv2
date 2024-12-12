@@ -3,14 +3,13 @@ import type { NextRequest } from 'next/server';
 import { verifyAuth } from './lib/auth';
 
 const adminOnlyPaths = [
-  '/dashboard/classes',
   '/dashboard/subjects',
   '/dashboard/settings',
 ];
 
 export async function middleware(request: NextRequest) {
   // Liste des chemins publics
-  const publicPaths = ['/', '/auth/login', '/dashboard'];
+  const publicPaths = ['/', '/auth/login'];
   
   // Vérifier si le chemin est public
   if (publicPaths.includes(request.nextUrl.pathname)) {

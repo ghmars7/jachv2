@@ -702,8 +702,8 @@ var Classes = /*#__PURE__*/ function(Classes) {
     return Classes;
 }({});
 var Role = /*#__PURE__*/ function(Role) {
-    Role[Role["Professeur"] = 1] = "Professeur";
-    Role[Role["Admin"] = 2] = "Admin";
+    Role[Role["professeur"] = 1] = "professeur";
+    Role[Role["admin"] = 2] = "admin";
     return Role;
 }({});
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {

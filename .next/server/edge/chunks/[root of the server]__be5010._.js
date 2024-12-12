@@ -112,7 +112,6 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 ;
 ;
 const adminOnlyPaths = [
-    '/dashboard/classes',
     '/dashboard/subjects',
     '/dashboard/settings'
 ];
@@ -120,8 +119,7 @@ async function middleware(request) {
     // Liste des chemins publics
     const publicPaths = [
         '/',
-        '/auth/login',
-        '/dashboard'
+        '/auth/login'
     ];
     // Vérifier si le chemin est public
     if (publicPaths.includes(request.nextUrl.pathname)) {

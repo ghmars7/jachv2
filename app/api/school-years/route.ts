@@ -8,6 +8,7 @@ export async function GET() {
   try {
     await connectDB();
     const schoolYears: SchoolYear[] = await SchoolYearModel.find({}).sort({ year: -1 }); // Annotate the type
+    //const year = await SchoolYearModel.find({ isActive: true })
     return NextResponse.json(schoolYears);
   } catch (error) {
     return NextResponse.json(

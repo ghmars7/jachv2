@@ -71,7 +71,7 @@ const sidebarItems: SidebarItem[] = [
     icon: ClipboardList, 
     label: "Import", 
     href: "/dashboard/import",
-    roles: ['admin', 'professeur']
+    roles: ['admin']
   },
   { 
     icon: Settings, 
